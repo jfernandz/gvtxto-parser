@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+
+
+while getopts ":i:o:vh" opt
+do
+    case $opt in
+        i ) echo "Captured input file flag -i"
+            inputfile=$OPTARG;;
+        o ) echo "Captured output file flag -o"
+            outputfile=$OPTARG
+            awk '$1 ~ /^[0-9]+:$/ {for(i=1;i<=NF;i++) if (i!=1) print $i}' inputfile > outputfile;; 
+        v ) echo "v1.0" ;;
+        h ) echo "Showing help" ;;
+        \? ) echo "Invalid option -$OPTARG"
+            exit 1 ;;
+        : ) echo "Option -$OPTARG requires an argument"
+            exit 1 ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+# It shows help when a non valid character is introduced by user as argument
+if [ -n "$1" ]
+then
+    echo "Showing help"
+fi
+
