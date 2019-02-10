@@ -19,7 +19,7 @@ while getopts ":i:o:vh" opt; do
             ;;
         o) 
             outputfile=$OPTARG
-            printf '%s\%s\n%s\n' "Captured output file flag -o" "Output file is:" "$outputfile"
+            printf '%s\%s\n%s\n' "Captured output file option -o" "Output file is:" "$outputfile"
             ;;
         v) 
             printf 'Script version:\t v1.0\n'
