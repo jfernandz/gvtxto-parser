@@ -44,7 +44,7 @@ if [ -z "$inputfile" ] || [ -z "$outputfile" ]
 then
     usage
 else
-    awk '$1 ~ /^[0-9]+:$/ {for(i=1;i<=NF;i++) if (i!=1) print $i}' "$inputfile" > "$outputfile"
+    gawk '$1 ~ /^[0-9]+:$/ {for(i=1;i<=NF;i++) if (i!=1) print $i}' "$inputfile" > "$outputfile"
 fi
 
 # It shows help when a non valid character is introduced by user as argument
