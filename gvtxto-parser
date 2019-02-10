@@ -1,21 +1,43 @@
 #!/bin/bash
 
 
+usage () {
+    printf '%s\n' "Usage: $0 [-i </input/file/path>] [-o </output/file/path>]"    
+    printf '\t%s\n' "-i input file path, it does admit absolute or relative paths"
+    printf '\t%s\n' "-o output file path, it does need to specify the name, also admits absolute or relative paths"
+    printf '\t%s\n' "-v version"
+    printf '\t%s\n' "-h it shows this help"
+    exit 1;
+}
+
 
 while getopts ":i:o:vh" opt
 do
     case $opt in
-        i ) inputfile=$OPTARG
-            printf '%s\n%s\n%s\n' "Captured input file flag -i" "Input file is:" "$inputfile";;
-        o ) outputfile=$OPTARG
+        i ) 
+            inputfile=$OPTARG
+            printf '%s\n%s\n%s\n' "Captured input file option -i" "Input file is:" "$inputfile"
+            ;;
+        o ) 
+            outputfile=$OPTARG
             printf '%s\%s\n%s\n' "Captured output file flag -o" "Output file is:" "$outputfile"
-            awk '$1 ~ /^[0-9]+:$/ {for(i=1;i<=NF;i++) if (i!=1) print $i}' $inputfile > $outputfile;; 
-        v ) echo "v1.0" ;;
-        h ) echo "Showing help" ;;
+            awk '$1 ~ /^[0-9]+:$/ {for(i=1;i<=NF;i++) if (i!=1) print $i}' "$inputfile" > "$outputfile"
+            ;;
+        v ) 
+            echo "v1.0"
+            ;;
+        h ) 
+            usage 
+            ;;
         \? ) echo "Invalid option -$OPTARG"
-            exit 1 ;;
+            exit 1 
+            ;;
         : ) echo "Option -$OPTARG requires an argument"
-            exit 1 ;;
+            exit 1 
+            ;;
+        * ) 
+            usage
+            ;;
     esac
 done
 shift $((OPTIND-1))
@@ -24,6 +46,6 @@ shift $((OPTIND-1))
 # It shows help when a non valid character is introduced by user as argument
 if [ -n "$1" ]
 then
-    echo "Showing help"
+    usage
 fi
 
