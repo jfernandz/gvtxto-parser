@@ -1,5 +1,6 @@
 import csv
 import io
+import re
 
 dat = """
 GammaVision spectrum printed on 08/02/2019 at 10:18:02
@@ -50,9 +51,15 @@ GammaVision spectrum printed on 08/02/2019 at 10:18:02
   504:        147       150       127       129       144       141       136       124"""
 
 
+regexchno = re.compile('(?!(^[0-9]+:$))')
+regexspace = re.compile('(?!^$)')
+
 with io.StringIO(dat) as f:
     for _ in range(4):
         next(f)
     reader = csv.reader(f, delimiter=' ')
     for row in reader:
-            print([r for r in row if r][1:])
+      for r in row:
+        if regexchno.match(r):
+          if regexspace.match(r):
+            print(r, end='\n')
