@@ -20,7 +20,8 @@ def parser(input, output):
     info_matches = re.search(rexinfo, i_str)
     if info_matches:
         #print("{match}".format(match=info_matches.group()))
-        output.write('{match}\nchannel,count\n'.format(match=info_matches.group()))
+        output.write('{match}\n'.format(match=info_matches.group()))
+        output.write('channel,count\n')
         noinf_str = re.sub(rexinfo, ' ', i_str)
     data_matches = re.finditer(rexdata, noinf_str)
     for i, match in enumerate(data_matches, start=1):
