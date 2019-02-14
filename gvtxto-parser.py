@@ -52,7 +52,10 @@ def parser(input, output):
     # a new one string called (noinf_str)
     if info_matches:
         #print("{match}".format(match=info_matches.group()))
-        output.write('{match}\n'.format(match=info_matches.group()))
+
+        # include metadata instead write in the file itself ? 
+
+        #output.write('{match}\n'.format(match=info_matches.group()))
         output.write('channel,count\n')
         noinf_str = re.sub(rexinfo, ' ', i_str)
 
