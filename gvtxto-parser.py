@@ -11,11 +11,24 @@ rexdata = r"(?<!\S)\d+(?!\S)"
 
 # Fetching command line arguments, with click module
 @click.command()
-@click.argument('input', type=click.File('r'))
-@click.argument('output', type=click.File('w'))
+@click.option('--prompt/--no-prompt', '-p/ ', default=False, help='Enables prompt input mode')
+@click.option('--head/--no-head', ' /-H', default=True, help='Enables/disables header printing')
+
+def selector(prompt):
+    if prompt:
+        @click.command()
+        @click.option('--inputfile', prompt='Input file:')
+        def inpt(inputfile):
+            input = open('inputfile', 'r')
+            @click.option('--outputfile', prompt='Output file:')#        def outp(outputfile):
+            output = open('outputfile', 'w')
+    else
+        @click.command()
+        @click.argument('input', type=click.File('r'))
+        @click.argument('output', type=click.File('w'))
 
 # Core function. It is parsing the input file and writing an output new file
-def parser(input, output):
+def parser(input, output, head):
     """
     This script allows you to convert GammaVision .txt output files into a
     much more treatable format, printing just one channel (and its respective
@@ -53,10 +66,12 @@ def parser(input, output):
     if info_matches:
         #print("{match}".format(match=info_matches.group()))
 
-        # include metadata instead write in the file itself ? 
-
-        #output.write('{match}\n'.format(match=info_matches.group()))
+        # include metadata instead write in the file itself ?
+        if head:
+                print('hello')
+                output.write('{match}\n'.format(match=info_matches.group()))
         output.write('channel,count\n')
+
         noinf_str = re.sub(rexinfo, ' ', i_str)
 
     # Second match created, using re.finditer() to iterate the searching
