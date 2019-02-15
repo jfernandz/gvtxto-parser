@@ -43,7 +43,7 @@ $ ./gvtxto-parser.py [-i/--input <filename.txt>] [-o/--output <filename.DAT>]
                      [-ot/--out-type {enhanced|raw|treatable}]
 ```
 
-In the case you don't provide any option, you will be prompted about input and output files and `--out-type` is set as `enhanced` by default.
+In the case you don't provide any option, you will be prompted about input and output files (tab autocompletion has not been implemented, so **I recommend one-line mode to take advantage of shell native autocompletion**) and `--out-type` is set as `enhanced` by default.
 
   - `enhanced`
 
