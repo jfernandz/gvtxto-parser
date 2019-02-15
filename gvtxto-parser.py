@@ -2,22 +2,22 @@
 
 import click
 import re
-# first regex try
-# rex = re.compile('(?!(^[0-9]+:$))(?!^$)')
 
-# IRC #regex suggestion; regex101.com might be helpful
+# First regex try
+# rex = re.compile('(?!(^[0-9]+:$))(?!^$)')
+# IRC freenode #regex suggestions;
+# regex101.com might be helpful
 rexinfo = r"^(?:(?! *\d+:).*\n)*"
 rexdata = r"(?<!\S)\d+(?!\S)"
 
 
-# Fetching command line arguments, with click module
 def print_version(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
     click.echo('Version 1.0')
     ctx.exit()
 
-
+# Fetching command line arguments, with click module
 @click.command()
 @click.option(
     '--version',
@@ -75,29 +75,36 @@ def parser(input, output, out_type):
     i_str = input.read()
     # print(i_str)
     # Parsing
-    # First match created (when re.search() found rexinfo)
+    # First match created (when re.search() find rexinfo)
     info_matches = re.search(rexinfo, i_str)
     # Parsing info lines. In the case info_matches will be true, it will
-    # print the match in the first lines and then it will remove them from
-    # the original string (i_str) with re.sub(). This will create
-    # a new one string called (noinf_str)
+    # take a decision accordign to user choice for --out-type parameter
+    # Default: enhanced
     if info_matches:
         # print("{match}".format(match=info_matches.group()))
-        # include metadata instead write in the file itself ?
+        # Storing file without GammaVision header in a new string
+        # called noinf_str. re.sub() function is replacing nexinfo
+        # match with blank spaces
         noinf_str = re.sub(rexinfo, ' ', i_str)
         # Second match created, using re.finditer() to iterate the
         # searching process. This iterative behavior is also useful
         # to print the channel number alongside his count, that's why
-        # we have used 'i' index and enumerate()
+        # we have used below 'i' index and enumerate()
         data_matches = re.finditer(rexdata, noinf_str)
         if out_type == 'enhanced':
+            # include metadata instead write in the file itself ?
+            # writing enhanced GammaVision header
             output.write('{match}\n'.format(match=info_matches.group()))
+            # writing columns headers
             output.write('channel,count\n')
+            # writing relevant data
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))
                 output.write('{i},{match}\n'.format(i=i, match=match.group()))
         elif out_type == 'treatable':
+            # writing columns headers
             output.write('channel,count\n')
+            # writing relevant data
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))
                 output.write('{i},{match}\n'.format(i=i, match=match.group()))
