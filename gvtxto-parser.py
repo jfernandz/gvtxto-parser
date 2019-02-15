@@ -3,7 +3,7 @@ import re
 
 
 # first regex try
-#rex = re.compile('(?!(^[0-9]+:$))(?!^$)')
+# rex = re.compile('(?!(^[0-9]+:$))(?!^$)')
 
 # IRC #regex suggestion; regex101.com might be helpful
 rexinfo = r"^(?:(?! *\d+:).*\n)*"
@@ -13,7 +13,6 @@ rexdata = r"(?<!\S)\d+(?!\S)"
 @click.command()
 @click.argument('input', type=click.File('r'))
 @click.argument('output', type=click.File('w'))
-
 # Core function. It is parsing the input file and writing an output new file
 def parser(input, output):
     """
@@ -21,7 +20,8 @@ def parser(input, output):
     much more treatable format, printing just one channel (and its respective
     count) per row, by-comma separated.
 
-    It has no options for the momment (in addition to --help), maybe in a future.
+    It has no options for the momment (in addition to --help), maybe in a
+    future.
     A practical usage would be:
 
             $ python gvtxto-parser.py <inputfile.txt> <outputfile.dat>
@@ -30,7 +30,8 @@ def parser(input, output):
     want (.dat in this case).
 
     The core has been designed using regex, so it should keep working
-    as long as GammaVision does preserve this kind of format for its output files.
+    as long as GammaVision does preserve this kind of format for its output
+    files.
 
     More info and practical examples about regex in www.regex101.com
     """
@@ -40,7 +41,7 @@ def parser(input, output):
 
     # Loading raw data in an input string to parse with regex
     i_str = input.read()
-    #print(i_str)
+    # print(i_str)
 
     # Parsing
 
@@ -51,18 +52,20 @@ def parser(input, output):
     # the original string (i_str) with re.sub(). This will create
     # a new one string called (noinf_str)
     if info_matches:
-        #print("{match}".format(match=info_matches.group()))
+        # print("{match}".format(match=info_matches.group()))
         output.write('{match}\n'.format(match=info_matches.group()))
         output.write('channel,count\n')
         noinf_str = re.sub(rexinfo, ' ', i_str)
 
     # Second match created, using re.finditer() to iterate the searching
     # process. This iterative behavior is also useful to print the channel
-    # number alongside his count, that's why we have used 'i' index and enumerate()
+    # number alongside his count, that's why we have used 'i' index and
+    # enumerate()
     data_matches = re.finditer(rexdata, noinf_str)
     for i, match in enumerate(data_matches, start=1):
-        #print("{i} {match}".format(i=i, match=match.group()))
+        # print("{i} {match}".format(i=i, match=match.group()))
         output.write('{i},{match}\n'.format(i=i, match=match.group()))
+
 
 if __name__ == '__main__':
     parser()
