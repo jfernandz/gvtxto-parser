@@ -5,18 +5,18 @@ This script parses output `.txt` files from GammaVision spectroscopy software, I
 The more appropriate way to treat this output files should be using R, however this script does clean that info and rearrange the values in a long format. Then you are gonna be able to treat those values with any kind of statistical software.
 
 ## Dependencies
-Furthermore than Python, you will need to install a few extra modules availables in `pip`:
+Further than Python, you will need to install a few extra modules available in `pip`:
 
 - `click` to handle/parse comand line arguments.
 - `regex` to parse data using regular expresions.
 
 You can install this packages performing the following commands
 
-###### Upgrade `pip`
+##### Upgrade `pip`
 ```
 sudo python -m pip install --upgrade pip
 ```
-###### Install `click`
+##### Install `click`
   - system-wide
   ```
   sudo python -m pip install click
@@ -25,7 +25,7 @@ sudo python -m pip install --upgrade pip
   ```
   python -m pip install --user click
   ```
-###### Install `regex`
+##### Install `regex`
   - system-wide
   ```
   sudo python -m pip install regex
