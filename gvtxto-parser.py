@@ -41,6 +41,7 @@ def print_version(ctx, param, value):
     help="Output file (you'll must add the file extenxion)")
 @click.option(
     '--out-type',
+    '-ot',
     type=click.Choice(['raw', 'enhanced', 'treatable']),
     default='enhanced',
     help=('raw:\nonly count per channel data \n'
