@@ -14,25 +14,25 @@ You can install this packages performing the following commands
 
 ##### Upgrade `pip`
 ```
-sudo python -m pip install --upgrade pip
+$ sudo python -m pip install --upgrade pip
 ```
 ##### Install `click`
   - system-wide
   ```
-  sudo python -m pip install click
+  $ sudo python -m pip install click
   ```
   - user-side
   ```
-  python -m pip install --user click
+  $ python -m pip install --user click
   ```
 ##### Install `regex`
   - system-wide
   ```
-  sudo python -m pip install regex
+  $ sudo python -m pip install regex
   ```
   - user-side
   ```
-  python -m pip install --user regex
+  $ python -m pip install --user regex
   ```
 
 ## Usage
