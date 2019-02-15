@@ -71,7 +71,7 @@ def parser(input, output, out_type, version):
     """
     # Important: all print() functions are intended to debug the code, so
     # they are disabled right now.
-    # Loading raw data in an input string to parse with regex
+    # Loading raw-GammaVision data in an input string to parse with regex
     i_str = input.read()
     # print(i_str)
     # Parsing
