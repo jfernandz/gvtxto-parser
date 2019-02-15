@@ -55,8 +55,7 @@ def parser(input, output, out_type, version):
     much more treatable format, printing just one channel (and its respective
     count) per row, by-comma separated.
 
-    It has no options for the momment (in addition to --help), maybe in a
-    future. A practical usage would be:
+    You can see the available options using --help option.
 
         $ python gvtxto-parser.py [options] -i <inpfil.txt> -o <outfil.dat>
 
