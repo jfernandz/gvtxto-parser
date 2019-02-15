@@ -19,13 +19,14 @@ def print_version(ctx, param, value):
 
 
 @click.command()
-@click.option('--version',
-              '-v',
-              is_flag=True,
-              callback=print_version,
-              expose_value=False,
-              is_eager=True,
-              help="Prints this script's version")
+@click.option(
+    '--version',
+    '-v',
+    is_flag=True,
+    callback=print_version,
+    expose_value=False,
+    is_eager=True,
+    help="Prints this script's version")
 @click.option(
     '--input',
     '-i',
