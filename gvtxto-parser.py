@@ -31,15 +31,15 @@ def print_version(ctx, param, value):
     '--input',
     '-i',
     prompt=True,
-    type=click.File('r'),
-    help='Input file; absolute/relative path')
-@click.option(
+    help='Input file; absolute/relative path',
+    type=click.File('r', encoding='latin-1'))
+@click.option(          # ^^^^ Attention to input file characters set encoding
     '--output',
     '-o',
     prompt=True,
-    type=click.File('w'),
-    help="Output file (you'll must add the file extenxion)")
-@click.option(
+    help="Output file (you'll must add the file extenxion)",
+    type=click.File('w', encoding='latin-1'))
+@click.option(          # ^^^^ Attention to input file characters set encoding
     '--out-type',
     '-ot',
     type=click.Choice(['raw', 'enhanced', 'treatable']),
