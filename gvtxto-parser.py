@@ -49,7 +49,7 @@ def print_version(ctx, param, value):
           ),
 )
 # Core function. It is parsing the input file and writing an output new file
-def parser(input, output, out_type, version):
+def parser(input, output, out_type):
     """
     This script allows you to convert GammaVision .txt output files into a
     much more treatable format, printing just one channel (and its respective
