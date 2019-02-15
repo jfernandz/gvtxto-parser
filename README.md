@@ -2,12 +2,12 @@
 
 This script parses output `.txt` files from GammaVision spectroscopy software, It does convert those files to a long format much more treatable from statistic point of view.
 
-The more appropriate way to treat this output files should be using R, however this script does clean that info and rearrange the values in a long format. Then you are gonna be able to treat those values with any kind of statistical software.
+The more appropriate way to treat this output files should be using `R`, however this script does clean that info and rearrange the values in a long format. Then you are gonna be able to treat those values with any kind of statistical software.
 
 ## Dependencies
-Further than Python, you will need to install a few extra modules available in `pip`:
+Further than `python`, you will need to install a few extra modules available in `pip`:
 
-- `click` to handle/parse comand line arguments.
+- `click` to handle/parse command line arguments.
 - `regex` to parse data using regular expresions.
 
 You can install this packages performing the following commands
@@ -21,7 +21,7 @@ sudo python -m pip install --upgrade pip
   ```
   sudo python -m pip install click
   ```
-  - your user
+  - user-side
   ```
   python -m pip install --user click
   ```
@@ -30,7 +30,7 @@ sudo python -m pip install --upgrade pip
   ```
   sudo python -m pip install regex
   ```
-  - your user
+  - user-side
   ```
   python -m pip install --user regex
   ```
