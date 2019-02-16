@@ -102,6 +102,10 @@ def parser(input, output, out_type):
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))
                 output.write('{i},{match}\n'.format(i=i, match=match.group()))
+        elif out_type == 'raw':
+            for i, match in enumerate(data_matches, start=1):
+                # print("{i} {match}".format(i=i, match=match.group()))
+                output.write('{match}'.format(match=match.group()))
         elif out_type == 'csv':
             # writing columns headers. Using csv module
             col_nam = ['channel', 'count']
@@ -111,10 +115,6 @@ def parser(input, output, out_type):
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))
                 output.write('{i},{match}\n'.format(i=i, match=match.group()))
-        elif out_type == 'raw':
-            for i, match in enumerate(data_matches, start=1):
-                # print("{i} {match}".format(i=i, match=match.group()))
-                output.write('{match}\n'.format(match=match.group()))
 
 
 if __name__ == '__main__':
