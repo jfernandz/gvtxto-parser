@@ -2,6 +2,7 @@
 
 import click
 import re
+import csv
 
 # First regex try
 # rex = re.compile('(?!(^[0-9]+:$))(?!^$)')
@@ -42,11 +43,11 @@ def print_version(ctx, param, value):
 @click.option(          # ^^^^ Attention to input file characters set encoding
     '--out-type',
     '-ot',
-    type=click.Choice(['raw', 'enhanced', 'treatable']),
+    type=click.Choice(['raw', 'enhanced', 'csv']),
     default='enhanced',
-    help=('raw:\nonly count per channel data \n'
+    help=('raw: only count per channel data \n'
           'enhanced: including GammaVision log info \n'
-          'tratable: csv by comma separated\nwith columns header'
+          'csv: comma-separated values'
           ),
 )
 # Core function. It is parsing the input file and writing an output new file
@@ -74,7 +75,7 @@ def parser(input, output, out_type):
     # Loading raw-GammaVision data in an input string to parse with regex
     i_str = input.read()
     # print(i_str)
-    # Parsing
+    # Parsingtreatable
     # First match created (when re.search() find rexinfo)
     info_matches = re.search(rexinfo, i_str)
     # Parsing info lines. In the case info_matches will be true, it will
@@ -101,9 +102,11 @@ def parser(input, output, out_type):
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))
                 output.write('{i},{match}\n'.format(i=i, match=match.group()))
-        elif out_type == 'treatable':
-            # writing columns headers
-            output.write('channel,count\n')
+        elif out_type == 'csv':
+            # writing columns headers. Using csv module
+            col_nam = ['channel', 'count']
+            writer = csv.DictWriter(output, fieldnames=col_nam)
+            writer.writeheader()
             # writing relevant data
             for i, match in enumerate(data_matches, start=1):
                 # print("{i} {match}".format(i=i, match=match.group()))

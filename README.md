@@ -40,7 +40,7 @@ The general usage would be
 
 ```
 $ ./gvtxto-parser.py [-i/--input <filename.txt>] [-o/--output <filename.DAT>]
-                     [-ot/--out-type {enhanced|raw|treatable}]
+                     [-ot/--out-type {enhanced|raw|csv}]
 ```
 
 In the case you don't provide any option, you will be prompted about input and output files (tab-autocompletion has not been implemented, so **I recommend one-line mode to take advantage of shell native autocomplete**) and `--out-type` is set as `enhanced` by default.
@@ -52,6 +52,6 @@ In the case you don't provide any option, you will be prompted about input and o
 
     It will parse the GammaVision output `.txt` to generate a file with raw channels data
 
-  - `treatable`
+  - `csv`
 
     This will produce a `.csv` file (comma separated values), this is the most appropriate format to treat with `R` or any spreadsheet. **You must use `.csv` extension to output file name in this case.**
