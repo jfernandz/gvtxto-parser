@@ -68,7 +68,7 @@ def parser(input, output, out_type):
     as long as GammaVision does preserve this kind of format for its output
     files.
 
-    More info and practical examples about regex in www.regex101.com
+    More info and practical examples about regex in https://regex101.com
     """
     # Important: all print() functions are intended to debug the code, so
     # they are disabled right now.
