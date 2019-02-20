@@ -42,7 +42,7 @@ Obviously on **Windows** you will not able to use sudo, but you can always **ope
 
 **However, you don't need to perform a system-wide install for `python`, since this script does not require it, it is fully functional at user space. As much, you will be asked for some admin password to perform any software install, but this is normal, of course; it is related to any kind of software install process in the system.**
 
-You also may want to [add `python` to your PATH environment variable,](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/) **if you have not done during python install process.**
+You also may want to [add `python` to your PATH environment variable,](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/) **if you have not done when you did start python install process.**
 
 
 ### Linux
