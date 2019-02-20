@@ -4,12 +4,12 @@ This script parses output `.txt` files from GammaVision spectroscopy software, I
 
 The more appropriate way to treat this output files should be using `R`, however this script does clean that info and rearrange the values in a long format. Then you are gonna be able to treat those values with any kind of statistical software.
 
+
 ## Usage
-The general usage would be
+A general usage would be
 
 ```
-$ ./gvtxto-parser.py [-i/--input <filename.txt>] [-o/--output <filename.DAT>]
-                     [-ot/--out-type {enhanced|raw|csv}]
+$ ./gvtxto-parser.py [-i/--input <filename.txt>] [-o/--output <filename.DAT>] [-ot/--out-type {enhanced|raw|csv}]
 ```
 
 In the case you don't provide any option, you will be prompted about input and output files (tab-autocompletion has not been implemented, so **I recommend one-line mode to take advantage of shell native autocomplete**) and `--out-type` is set as `enhanced` by default.
@@ -27,12 +27,12 @@ In the case you don't provide any option, you will be prompted about input and o
 
 
 ## Dependencies
-Further than `python`, you will need to install a few extra modules available in `pip`:
+Further than `python`, you will need to install a few extra modules available through `pip`:
 
 - `click` to handle/parse command line arguments.
 - `regex` to parse data using regular expresions.
 
-You can install this packages performing the following commands
+You will be able to install this packages performing the following commands
 
 ##### Upgrade `pip`
 ```
@@ -56,3 +56,10 @@ $ sudo python -m pip install --upgrade pip
   ```
   $ python -m pip install --user regex
   ```
+
+Obviously in **Windows** you will not able to use sudo, but you can always **open a new terminal like admin** for a system-wide install, and of course, **omit** `sudo`.
+
+
+## License
+
+This project is licensed under GPLv3. - see the [LICENSE.md](LICENSE.md) file for details.
