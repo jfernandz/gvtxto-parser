@@ -36,43 +36,82 @@ You will be able to install these packages performing the following commands, de
 
 ### Windows
 
-**Download** `python` **from their [official website](https://www.python.org/downloads/)**
+- ##### Download `python` from their [official website](https://www.python.org/downloads/)
 
-Obviously on **Windows** you will not able to use sudo, but you can always **open a new terminal as admin** for a system-wide install. Then you will be able to perform the same commands than on Linux, but **omitting** `sudo`.
+- ##### Install `python`
 
-**However, you don't need to perform a system-wide install for `python`, since this script does not require it, it is fully functional at user space. As much, you will be asked for some admin password to perform any software install, but this is normal, of course; it is related to any kind of software install process in the system.**
+  - Launch python install process (double click in `python-<whatever>.exe`). you will be asked about some admin password if you choose `install launcher for all users (recommended)`, which is marked by default, and I also recommend to keep that tick enabled.
+
+    - I of course also recommend choose the option `Add python <whatever> to PATH`, like this picture shows
+
+      ![](python-examples/windows-setup.jpg)
+
+      This will allow you to run the script directly from command line using
+
+      `.\gvtxto-parser.py [option1] [option2] ...`
+
+      And you will not need explicitly call installed `python` binary (during previous install process) before type `gvtxto-parser.py` command.
+
+      ==============
+
+      In other way (**if you have not** added python to PATH environment variable) you should run something like:
+
+      ```
+      C:\Users\<whatever>\AppData\Local\programs\Python\Python<whatever> .\gvtxto-parser.py [option1] [option2] ...
+      ```
+
+
+
+
+- ##### Upgrade `pip`, install `click` and `regex`
+
+  - **This script does not require admin privileges, it is fully functional at user space.** As much, you will be asked for some admin password when performing main `python` install process, but this is normal, of course; it is related to any kind of software install process in the system. **So, open a new `cmd` window and type the following commands:**
+
+    - Upgrade `pip`
+    ```
+    python -m pip install --upgrade pip
+    ```
+    - Install `click` and `regex`
+    ```
+    python -m pip install --user click
+    ```
+    ```
+    python -m pip install --user regex
+    ```
 
 You also may want to [add `python` to your PATH environment variable,](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/) **if you did not when you did start python install process.**
 
+==============
+
+**(Optional)** To perform a **system-wide install** you must launch your `python-<whatever>.exe` installer as admin, and perform the `pip` upgrade, `click` and `regex` install process in a **`cmd` window with elevated privileges.**
 
 ### Linux
-
+- ##### Install `python`
+  I recommend to use the package present at your distro repos. You will need to perform this operation as root.
 - ##### Upgrade `pip`
-First update your `pip` module
-```
-$ sudo python -m pip install --upgrade pip
-```
-
-You will need to perform this operation as root.
-
-- ##### Install `click`
-  - system-wide / install as root
+  First update your `pip` module. This may require root privileges.
   ```
-  $ sudo python -m pip install click
+  $ sudo python -m pip install --upgrade pip
   ```
-  - user-side
+
+- ##### Install `click` and `regex`
+  - **(Min. required)** user-side
   ```
   $ python -m pip install --user click
   ```
-- ##### Install `regex`
-  - system-wide / install as root
-  ```
-  $ sudo python -m pip install regex
-  ```
-  - user-side
   ```
   $ python -m pip install --user regex
   ```
+
+  ==============
+  - **(Optional)** system-wide / install as root
+  ```
+  $ sudo python -m pip install click
+  ```
+  ```
+  $ sudo python -m pip install regex
+  ```
+
 
 ## License
 
