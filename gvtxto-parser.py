@@ -92,7 +92,7 @@ def parser(input, output, out_type):
         # to print the channel number alongside his count, that's why
         # we have used below 'i' index and enumerate()
         data_matches = re.finditer(rexdata, noinf_str)
-        if out_type == 'enhanced':
+        if out_type == 'raw':
             # include metadata instead write in the file itself ?
             # writing enhanced GammaVision header
             output.write('{match}\n'.format(match=info_matches.group()))
