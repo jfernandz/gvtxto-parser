@@ -73,10 +73,7 @@ You will be able to install these packages performing the following commands, de
     ```
     - Install `click` and `regex`
     ```
-    python -m pip install --user click
-    ```
-    ```
-    python -m pip install --user regex
+    python -m pip install --user click regex
     ```
 
 You also may want to [add `python` to your PATH environment variable,](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/) **if you did not when you did start python install process.**
@@ -97,19 +94,13 @@ You also may want to [add `python` to your PATH environment variable,](https://w
 - ##### Install `click` and `regex`
   - **(Min. required)** user-side
   ```
-  $ python -m pip install --user click
-  ```
-  ```
-  $ python -m pip install --user regex
+  $ python -m pip install --user click regex
   ```
 
   ==============
   - **(Optional)** system-wide / install as root
   ```
-  $ sudo python -m pip install click
-  ```
-  ```
-  $ sudo python -m pip install regex
+  $ sudo python -m pip install click regex
   ```
 
 
