@@ -34,12 +34,18 @@ Further than `python`, you will need to install a few extra modules available th
 
 You will be able to install this packages performing the following commands
 
-##### Upgrade `pip`
+### Linux
+
+- ##### Upgrade `pip`
+First update your `pip` module
 ```
 $ sudo python -m pip install --upgrade pip
 ```
-##### Install `click`
-  - system-wide
+
+You will need to perform this operation as root.
+
+- ##### Install `click`
+  - system-wide / install as root
   ```
   $ sudo python -m pip install click
   ```
@@ -47,8 +53,8 @@ $ sudo python -m pip install --upgrade pip
   ```
   $ python -m pip install --user click
   ```
-##### Install `regex`
-  - system-wide
+- ##### Install `regex`
+  - system-wide / install as root
   ```
   $ sudo python -m pip install regex
   ```
@@ -57,7 +63,14 @@ $ sudo python -m pip install --upgrade pip
   $ python -m pip install --user regex
   ```
 
-Obviously in **Windows** you will not able to use sudo, but you can always **open a new terminal like admin** for a system-wide install, and of course, **omit** `sudo`.
+### Windows
+
+**Download** `python` **from their [official website](https://www.python.org/downloads/)** 
+
+Obviously in **Windows** you will not able to use sudo, but you can always **open a new terminal as admin** for a system-wide install. Then you will be able to perform the same commands than Linux, but obviously **omitting** `sudo`.
+
+
+You also may want to [add `python` to your PATH environment variable.](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/)
 
 
 ## License
