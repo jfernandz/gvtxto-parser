@@ -38,7 +38,7 @@ You will be able to install these packages performing the following commands, de
 
 **Download** `python` **from their [official website](https://www.python.org/downloads/)**
 
-Obviously on **Windows** you will not able to use sudo, but you can always **open a new terminal as admin** for a system-wide install. Then you will be able to perform the same commands than Linux, but obviously **omitting** `sudo`.
+Obviously on **Windows** you will not able to use sudo, but you can always **open a new terminal as admin** for a system-wide install. Then you will be able to perform the same commands than Linux, but **omitting** `sudo`.
 
 **However, you don't need to perform a system-wide install for `python`, since this script does not require it, it is fully functional at user space. As much, you will be asked for some admin password to perform any software install, but this is normal, of course; it is related to any kind of software install process in the system.**
 
