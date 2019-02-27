@@ -1,5 +1,12 @@
 #!/usr/bin/python
 
+#       Autor:    Javier Fernández Aparicio
+#       Email:    jfernandil@alumnos.unex.es
+
+# Project website:
+
+#       https://github.com/WyRe/gammavision-txtoutput-parser
+
 import click
 import re
 import csv
@@ -57,18 +64,20 @@ def parser(input, output, out_type):
     much more treatable format, printing just one channel (and its respective
     count) per row, by-comma separated.
 
-    You can see the available options using --help option.
+    You can see the available options using --help argument.
 
         $ python gvtxto-parser.py [options] -i <inpfil.txt> -o <outfil.dat>
 
-    Theoretically you are going to be able to choose the format what you
-    want (.dat in this case).
+    You may choose the format what you want (.dat in this case).
 
     The core has been designed using regex, so it should keep working
     as long as GammaVision does preserve this kind of format for its output
     files.
 
     More info and practical examples about regex in https://regex101.com
+
+    Author:     Javier Fernández        <jfernandil@alumnos.unex.es>    Project
+    / Docs ->    https://github.com/WyRe/gammavision-txtoutput-parser
     """
     # Important: all print() functions are intended to debug the code, so
     # they are disabled right now.
