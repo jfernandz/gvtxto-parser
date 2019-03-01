@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# -*- coding: latin-1 -*-
+
 #       Autor:    Javier Fernández Aparicio
 #       Email:    jfernandil@alumnos.unex.es
 
