@@ -51,7 +51,7 @@ def print_version(ctx, param, value):
     '--out-type',
     '-ot',
     type=click.Choice(['raw', 'enhanced', 'csv']),
-    default='enhanced',
+    default='raw',
     help=('raw: only count per channel data \n'
           'enhanced: including GammaVision log info \n'
           'csv: comma-separated values'
@@ -101,7 +101,7 @@ def parser(input, output, out_type):
         # to print the channel number alongside his count, that's why
         # we have used below 'i' index and enumerate()
         data_matches = re.finditer(rexdata, noinf_str)
-        if out_type == 'raw':
+        if out_type == 'enhanced':
             # include metadata instead write in the file itself ?
             # writing enhanced GammaVision header
             output.write('{match}\n'.format(match=info_matches.group()))
