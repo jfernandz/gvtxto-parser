@@ -84,23 +84,16 @@ You also may want to [add `python` to your PATH environment variable,](https://w
 
 ### Linux
 - ##### Install `python`
-  I recommend to use the package present at your distro repos. You will need to perform this operation as root.
+  I recommend to use the package present at your distro repositories. You will need to perform this operation as root.
 - ##### Upgrade `pip`
-  First update your `pip` module. This may require root privileges.
+  First update your `pip` module. From your distro repositories for a system-wide install or using pip itself
   ```
-  $ sudo python -m pip install --upgrade pip
+  $ python -m pip install --user --upgrade pip
   ```
 
-- ##### Install `click` and `regex`
-  - **(Min. required)** user-side
+- ##### Install `click` and `regex`. From your distro repos (system-wide) or using pip, as follows.
   ```
   $ python -m pip install --user click regex
-  ```
-
-  ==============
-  - **(Optional)** system-wide / install as root
-  ```
-  $ sudo python -m pip install click regex
   ```
 
 
