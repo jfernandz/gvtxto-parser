@@ -7,7 +7,7 @@
 
 # Project website:
 
-#       https://github.com/WyRe/gammavision-txtoutput-parser
+#       https://github.com/WyRe/gvtxto-parser
 
 import click
 import re
