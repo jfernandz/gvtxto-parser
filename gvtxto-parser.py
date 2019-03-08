@@ -79,7 +79,7 @@ def parser(input, output, out_type):
     More info and practical examples about regex in https://regex101.com
 
     Author:     Javier Fernández        <jfernandil@alumnos.unex.es>    Project
-    / Docs ->    https://github.com/WyRe/gammavision-txtoutput-parser
+    / Docs ->    https://github.com/WyRe/gvtxto-parser
     """
     # Important: all print() functions are intended to debug the code, so
     # they are disabled right now.
